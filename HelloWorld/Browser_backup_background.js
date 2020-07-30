@@ -1,0 +1,36 @@
+chrome.runtime.onInstalled.addListener(function (){
+    chrome.storage.sync.set({name:"Trina"},function(){
+        console.log("name set");
+    });
+    console.log("Hello World.");
+    chrome.declarativeContent.onPageChanged.removeRules(undefined, function (){
+        chrome.declarativeContent.onPageChanged.addRules([
+            {
+                conditions: [
+                    new chrome.declarativeContent.PageStateMatcher({
+                        pageUrl:{urlContains:'google'}
+                    })
+                ],
+                actions: [new chrome.declarativeContent.ShowPageAction()]
+            }
+        ]);        
+    });
+    
+});
+
+chrome.bookmarks.onCreated.addListener(function (){
+    chrome.storage.sync.get('name', function(obj){
+        chrome.browserAction.setBadgeText({text:"TS"});
+        console.log("Bookmark Created."+ obj.name + " created.");
+    });
+    
+});
+
+chrome.bookmarks.onRemoved.addListener(function (){
+    chrome.storage.sync.get('name', function(obj){
+        chrome.browserAction.setBadgeText({text:"Bye"});
+        console.log("Bookmark Removed."+ obj.name + " created.");
+    });
+    
+});
+

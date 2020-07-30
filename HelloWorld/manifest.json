@@ -1,0 +1,44 @@
+{
+    "manifest_version": 2,
+    "name": "hello_world",
+    "version": "0.0.1",
+  
+    "description": "Write hello world.",
+    "icons":{ 
+        "16": "images/iconfinder_In-yang_132767.png",
+        "32": "images/iconfinder_Diagram_131845.png",
+        "48": "images/iconfinder_Sun_132166.png",
+       "128": "images/Default-Icon-icon.png" 
+    },
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+    "permissions": ["bookmarks", "storage", "declarativeContent"],
+    "browser_action": {
+        "default_icon":{
+            "16": "images/icon16.png",
+            "32": "images/icon32.png"        
+        },
+        "default_title": "Hi Trina",
+        "default_popup": "popup.html"  
+    },
+    "commands": {
+        "_execute_browser_action":{
+            "suggested_key": {
+                "default": "Ctrl+Shift+F",
+                "mac": "MacCtrl+Shift+F"
+            },
+            "description": "Opens popup"
+        },
+        "my_command":{
+            "suggested_key": {
+                "default": "Ctrl+Shift+H",
+                "mac": "MacCtrl+Shift+H"
+            },
+            "description": "Show Badge"
+        }
+
+    }
+
+  }
