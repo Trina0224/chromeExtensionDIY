@@ -1,0 +1,15 @@
+.snowflake {
+    position: absolute;
+    cursor: default;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    font-family: inherit;
+}
+
+body{
+    background-image: url("./images/snow-128.png");
+    background-repeat: no-repeat;
+}
